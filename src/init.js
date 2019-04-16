@@ -1,5 +1,27 @@
 $(document).ready(function() {
-  window.dancers = [];
+  window.dancers = []; 
+
+  $('.lineUp').on('click', function(event) { 
+    // loop thru window.dancers
+    var lineDancers = window.dancers; 
+    // var lft = 
+    var pos = 0;
+    var $tempNode;
+      // change relative position to eachother in line. 
+      // dancer[i].css
+      for (var i = 0; i < lineDancers.length; i ++) {
+        $tempNode = lineDancers[i];
+        $tempNode.css({
+          'top': pos,
+          'left': '0px'
+        });
+        pos += 60;
+      }
+  });
+
+  $(document).on('mouseover','.breakDancer', function(event) {
+    $(this).toggleClass('dancer');
+  });
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
